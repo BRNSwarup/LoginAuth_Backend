@@ -5,6 +5,7 @@ import pool from "./db.js";
 import { generateOTP, currentOTP, sendEMail,generateJWT,JWTAccessTokenverification } from "./utils.js";
 
 const app = express()
+const PORT = process.env.PORT || 3000;
 app.use(cros({
     origin: '*'
 }))
@@ -116,6 +117,6 @@ app.get('/usersData',JWTAccessTokenverification,(req,res)=>{
     res.status(200).json({message:"users data"})
 })
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log("Server is running")
 })
